@@ -1,5 +1,5 @@
-// import * as firebase from "firebase/app";
-import firebase from "firebase/app";
+import * as firebase from "firebase/app";
+// import firebase from "firebase/app";
 
 import "firebase/auth";
 import "firebase/database";
@@ -10,11 +10,11 @@ import "firebase/functions";
 // import "firebase/firebase-messaging";
 
 import Vue from "vue";
-// import VueFirestore from "vue-firestore";
-// Vue.use(VueFirestore, {
-//   key: "id",
-//   enumerable: true
-// });
+import VueFirestore from "vue-firestore";
+Vue.use(VueFirestore, {
+  key: "id",
+  enumerable: true
+});
 
 var firebaseConfig = {
   apiKey: "AIzaSyBNJRh5PQsngFCByPmSPRpbYNcOIIFAL0w",

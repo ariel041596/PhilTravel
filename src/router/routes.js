@@ -3,7 +3,7 @@ const routes = [
     path: "/",
     component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: "", component: () => import("pages/PageDashboard.vue") },
+      { path: "/home", component: () => import("pages/PageDashboard.vue") },
       { path: "/auth", component: () => import("pages/PageAuth.vue") },
       {
         path: "/diy-itinerary",
@@ -12,6 +12,10 @@ const routes = [
       {
         path: "/my-itinerary",
         component: () => import("pages/PageMyItinerary.vue")
+      },
+      {
+        path: "/my-itinerary/:id",
+        component: () => import("pages/PageItineraryDetails.vue")
       },
       {
         path: "/account",

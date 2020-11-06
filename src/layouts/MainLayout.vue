@@ -3,8 +3,16 @@
     <q-header elevated v-if="loggedIn">
       <q-toolbar>
         <q-btn
+          v-if="loggedIn && this.$route.params.id"
+          flat
+          round
+          icon="arrow_back"
+          aria-label="Menu"
+          v-go-back.single
+        />
+        <q-btn
           class="drawer"
-          v-if="loggedIn"
+          v-if="loggedIn && !this.$route.params.id"
           flat
           dense
           round
@@ -14,8 +22,14 @@
         />
 
         <q-toolbar-title>
-          <q-avatar class="sideLogo" size="35px" color="red">P</q-avatar>
-          PhilTravel
+          <q-avatar
+            v-if="!this.$route.params.id"
+            class="sideLogo"
+            size="35px"
+            color="red"
+            >P</q-avatar
+          >
+          {{ title }}
         </q-toolbar-title>
 
         <div>
@@ -108,12 +122,19 @@ import { mapState, mapActions, mapGetters } from "vuex";
 import EssentialLink from "components/EssentialLink.vue";
 
 const linksData = [
+  // {
+  //   title: "Dashboard",
+  //   caption: "",
+  //   icon: "dashboard",
+  //   link: "",
+  //   to: "/"
+  // },
   {
-    title: "Dashboard",
+    title: "Home",
     caption: "",
-    icon: "dashboard",
+    icon: "home",
     link: "",
-    to: "/"
+    to: "/home"
   },
   {
     title: "DIY Itinerary",
@@ -153,7 +174,14 @@ export default {
     }
   },
   computed: {
-    ...mapState("auth", ["loggedIn", "userDetails"])
+    ...mapState("auth", ["loggedIn", "userDetails"]),
+    title() {
+      let currentPath = this.$route.fullPath;
+      if (currentPath == "/") return "PhilTravel";
+      else if (currentPath.includes("/my-itinerary/" + this.$route.params.id))
+        return "Details";
+      else return "PhilTravel";
+    }
   },
   mounted() {
     console.log(this.userDetails);
