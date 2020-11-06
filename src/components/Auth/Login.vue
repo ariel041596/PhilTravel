@@ -9,8 +9,10 @@
           <q-icon v-if="tab == 'login'" name="account_circle" color="primary" />
           <q-icon v-if="tab == 'register'" name="person_add" color="primary" />
         </template>-->
-          <!-- {{ tab | titleCase }} -->\
-          <div class="text-h5 text-weight-bold text-grey-9">Login</div>
+          <!-- {{ tab | titleCase }} -->
+          <div class="q-mt-md text-h5 text-weight-bold text-grey-9">
+            Sign in
+          </div>
         </q-banner>
       </div>
       <q-form @submit.prevent="login">
@@ -54,7 +56,7 @@
             rounded
             type="submit"
             class="col"
-            label="Login"
+            label="Sign in"
             color="primary"
           >
           </q-btn>

@@ -106,7 +106,7 @@
         </q-btn>
       </div>
       <div class=" text-center q-mt-xl column">
-        <q-item-label caption class="text-grey-7"
+        <q-item-label caption class="text-teal"
           >already have account?</q-item-label
         >
       </div>
@@ -116,7 +116,7 @@
           flat
           rounded
           style="width: 150px"
-          label="LOGIN HERE"
+          label="SIGN IN HERE"
         ></q-btn>
       </div>
     </q-card-section>

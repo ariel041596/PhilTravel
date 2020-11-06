@@ -125,9 +125,15 @@ const actions = {
   },
   loginGmail() {
     fb.auth()
-      .signInWithPopup(provider)
+      .signInWithRedirect(provider)
       .then(function(result) {
-        // var token = result.credential.accessToken;
+        return fb.auth().getRedirectResult();
+        if (result.credential) {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+          var token = result.credential.accessToken;
+          // ...
+          console.log(token);
+        }
         var user = result.user;
         console.log(user);
         let userID = fb.auth().currentUser.uid;
@@ -135,6 +141,8 @@ const actions = {
           displayName: user.displayName,
           id: userID,
           email: user.email,
+          photo: user.photo,
+          // photo: user.photoURL,
           roles: "new",
           online: true,
           createdBy: userID
@@ -197,6 +205,7 @@ const actions = {
         // dispatch("storetasks/fbReadData", null, {
         //   root: true
         // });
+
         $.getJSON("http://gd.geobytes.com/GetCityDetails?callback=?", data => {
           this.ipadd = JSON.stringify(data.responseJSON);
           // JSON.stringify(data.geobytesremoteip);

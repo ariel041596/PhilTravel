@@ -9,7 +9,8 @@
 <script>
 export default {
   components: {
-    itineraries: require("components/PublicItinerarys/Itinerarys.vue").default
+    itineraries: require("components/Itinerary/PublicItinerarys/Itinerarys.vue")
+      .default
   }
 };
 </script>
