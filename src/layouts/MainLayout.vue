@@ -1,8 +1,13 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated v-if="loggedIn">
-      <q-toolbar>
+    <q-header
+      class="bg-white"
+      v-if="loggedIn && this.$route.fullPath !== '/home'"
+    >
+      <q-toolbar class="q-pl-none">
         <q-btn
+          dense
+          color="primary"
           v-if="loggedIn && this.$route.params.id"
           flat
           round
@@ -21,14 +26,14 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
         />
 
-        <q-toolbar-title>
-          <q-avatar
+        <q-toolbar-title class="text-grey text-subtitle1">
+          <!-- <q-avatar
             v-if="!this.$route.params.id"
             class="sideLogo"
             size="35px"
             color="red"
             >P</q-avatar
-          >
+          > -->
           {{ title }}
         </q-toolbar-title>
 
@@ -72,7 +77,7 @@
           >
             <div class="absolute-bottom bg-transparent">
               <q-avatar size="56px" class="q-mb-sm">
-                <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+                <img class="account-photo" :src="userDetails.photo" />
               </q-avatar>
               <div class="text-weight-bold">
                 {{ this.userDetails.displayName }}
@@ -174,12 +179,15 @@ export default {
     }
   },
   computed: {
-    ...mapState("auth", ["loggedIn", "userDetails"]),
+    ...mapState("auth", ["loggedIn", "userDetails", "setAdmin"]),
     title() {
       let currentPath = this.$route.fullPath;
       if (currentPath == "/") return "PhilTravel";
       else if (currentPath.includes("/my-itinerary/" + this.$route.params.id))
         return "Details";
+      else if (currentPath.includes("/my-itinerary")) return "My Itinerary";
+      else if (currentPath.includes("/diy-itinerary")) return "Itineraries";
+      else if (currentPath.includes("/home")) return "";
       else return "PhilTravel";
     }
   },
@@ -207,5 +215,8 @@ export default {
 }
 .route-tab-label {
   font-size: 10px;
+}
+.account-photo {
+  object-fit: cover;
 }
 </style>

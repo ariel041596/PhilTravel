@@ -16,6 +16,24 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+            <icon density="ldpi" src="app-icon.png" />
+            <icon density="mdpi" src="app-icon.png" />
+            <icon density="xxxhdpi" src="app-icon.png" />
+            <splash density="land-ldpi" src="app-icon.png" />
+            <splash density="port-ldpi" src="app-icon.png" />
+            <splash density="land-mdpi" src="app-icon.png" />
+            <icon density="hdpi" src="app-icon.png" />
+            <icon density="xxhdpi" src="app-icon.png" />
+            <splash density="port-mdpi" src="app-icon.png" />
+            <splash density="land-hdpi" src="app-icon.png" />
+            <splash density="land-xxhdpi" src="app-icon.png" />
+            <splash density="port-xxhdpi" src="app-icon.png" />
+            <splash density="land-xxxhdpi" src="app-icon.png" />
+            <splash density="port-xxxhdpi" src="app-icon.png" />
+            <icon density="xhdpi" src="app-icon.png" />
+            <splash density="port-hdpi" src="app-icon.png" />
+            <splash density="land-xhdpi" src="app-icon.png" />
+            <splash density="port-xhdpi" src="app-icon.png" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />

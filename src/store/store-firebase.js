@@ -124,10 +124,11 @@ const actions = {
       });
   },
   loginGmail() {
+    Loading.show();
     fb.auth()
       .signInWithRedirect(provider)
       .then(function(result) {
-        return fb.auth().getRedirectResult();
+        // return fb.auth().getRedirectResult();
         if (result.credential) {
           // This gives you a Google Access Token. You can use it to access the Google API.
           var token = result.credential.accessToken;
@@ -147,10 +148,12 @@ const actions = {
           online: true,
           createdBy: userID
         });
+      
       })
       .catch(function(error) {
         console.log(error);
       });
+      Loading.hide()
   },
   logoutUser() {
     fb.auth().signOut();
@@ -179,25 +182,35 @@ const actions = {
             id: userDetails.id
           });
         });
-        user.getIdTokenResult().then(idTokenResult => {
-          const admin = idTokenResult.claims.admin;
-          const inspector = idTokenResult.claims.inspector;
-          // console.log(admin);
-          if (admin == true) {
-            commit("setusersAdmin", true);
-            this.$router.push("/").catch(err => {});
-            // fb.auth().signOut();
-          } else {
-            if (inspector == true) {
-              console.log("I am inspector");
-              commit("setusersInspector", true);
-              this.$router.push("/joborders").catch(err => {});
-              // fb.auth().signOut();
-            } else {
-              this.$router.push("/diy-itinerary").catch(err => {});
-            }
-          }
-        });
+        if(user.roles=='admin'){
+          commit("setusersAdmin", true);
+          this.$router.push("/home").catch(err => {});
+        }else if(user.roles=='new'){
+          this.$router.push("/home").catch(err => {});
+        }else {
+          this.$router.push("/home").catch(err => {});
+        }
+        // uncomment if want to add customClaims
+        // user.getIdTokenResult().then(idTokenResult => {
+        //   const admin = idTokenResult.claims.admin;
+        //   const inspector = idTokenResult.claims.inspector;
+        //   // console.log(admin);
+        //   if (admin == true) {
+        //     commit("setusersAdmin", true);
+        //     this.$router.push("/home").catch(err => {});
+        //     // fb.auth().signOut();
+        //   } else {
+        //     if (inspector == true) {
+        //       console.log("I am inspector");
+        //       commit("setusersInspector", true);
+        //       this.$router.push("/joborders").catch(err => {});
+        //       // fb.auth().signOut();
+        //     } else {
+        //       this.$router.push("/home").catch(err => {});
+        //     }
+        //   }
+        // });
+        // End uncomment if want to add customClaims
 
         // if (user.emailVerified) {    == uncomment this after development
         commit("setLoggedIn", true);

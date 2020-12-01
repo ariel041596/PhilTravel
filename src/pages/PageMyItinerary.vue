@@ -2,7 +2,14 @@
   <q-page padding>
     <my-itineraris></my-itineraris>
     <q-page-sticky class="all-pointer-events" :offset="[18, 18]">
-      <q-fab
+      <q-btn
+        size="18px"
+        round
+        color="primary"
+        icon="add"
+        @click="showPostItinerary = true"
+      ></q-btn>
+      <!-- <q-fab
         label-class="bg-grey-3 text-grey-8"
         external-label
         label-position="top"
@@ -10,8 +17,8 @@
         icon="add"
         @click="showPostItinerary = true"
         direction="up"
-      >
-        <!-- <q-fab-action
+      > -->
+      <!-- <q-fab-action
           label-class="bg-grey-3 text-grey-8"
           external-label
           label-position="top"
@@ -20,7 +27,7 @@
           label="Post"
           @click="showPostItinerary = true"
         /> -->
-      </q-fab>
+      <!-- </q-fab> -->
     </q-page-sticky>
     <q-dialog
       persistent
