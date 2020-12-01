@@ -2534,6 +2534,13 @@ axios@^0.18.1:
     follow-redirects "1.5.10"
     is-buffer "^2.0.2"
 
+axios@^0.19.2:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+  integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
+  dependencies:
+    follow-redirects "1.5.10"
+
 babel-eslint@^10.0.1:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.1.0.tgz#6968e568a910b78fb3779cdd8b6ac2f479943232"
@@ -11717,6 +11724,13 @@ vue-firestore@^0.3.30:
     cross-env "^6.0.3"
     firebase "^7.6.1"
     vue "^2.6.11"
+
+vue-gsheets@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/vue-gsheets/-/vue-gsheets-4.0.3.tgz#bd51acfc71eafcd8819dcc25f9baa6867d37cab7"
+  integrity sha512-6sms/EYF50oKIcJ8lg7LsVnZ1nx2fN7lpDku3j7e0aNt02BYl+TV+E5BHgouo6aCjwV+RgICgN2oceAojeDoIA==
+  dependencies:
+    axios "^0.19.2"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"

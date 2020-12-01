@@ -1,0 +1,91 @@
+use FistMongoDB
+
+
+db.Playlist.insertMany([
+    {
+      "song":"Babalik Ka Pa Ba",
+      "artist":"CHNDTR",
+      "album": "Habang Umuulan",
+      "released":2018,
+      "songwriter": [
+          "Chin Detera",
+          "Eric JP",
+          "Sean De Leon",
+          "Benjo Cristle"
+      ]
+    },
+    {
+      "song":"Bulong",
+      "artist":"December Avenue",
+      "album": "Langit Mong Bughaw",
+      "released":2019,
+      "songwriter": [
+          "Zel Bautista",
+          "Jem Manuel",
+          "Don Gregorio",
+          "Jet Danao",
+          "Gelo Cruz"
+      ]
+    },
+    {
+        "song":"Bawat Kaluluwa",
+        "artist":"IV of Spades",
+        "album": "CLAPCLAPCLAP!",
+        "released":2019,
+        "songwriter": [
+            "Zild Benitez",
+            "Blaster Salonga",
+            "Badjao De Castro",
+        ]
+      },
+      {
+        "song":"Kathang Isip",
+        "artist":"Ben&Ben",
+        "album": "Ben&Ben",
+        "released":2017,
+        "songwriter": [
+            "Paulo Guico",
+            "Miguel Guico",
+            "Poch Barretto",
+            "Jam Villanueva"
+        ]
+      },
+      {
+        "song":"Director's Cut",
+        "artist":"Kamikazee",
+        "album": "Maharot",
+        "released":2006,
+        "songwriter": [
+            "Jay Contreras",
+            "Jomal Linao",
+            "Puto Astete",
+            "Led Tuyay",
+            "Bords Bordeos"
+        ]
+      },
+      {
+        "song":"Martyr Nyebera",
+        "artist":"Kamikazee",
+        "album": "Maharot",
+        "released":2006,
+        "songwriter": [
+            "Jay Contreras",
+            "Jomal Linao",
+            "Puto Astete",
+            "Led Tuyay",
+            "Bords Bordeos"
+        ]
+      },
+
+])
+
+db.Playlist.find({released: 2006}).pretty()
+db.Playlist.find({released: 2017}).pretty()
+
+db.Playlist.update({"song": Director's Cut},{$set: {"song": ["Director's Cut","Narda", "Sobrang Init", "Chicksilog", "Ambisyoso"]}})
+db.Playlist.find({"song": Director's Cut}).pretty()
+db.Playlist.remove({"song": Director's Cut})
+db.Playlist.insertOne({"OPM": {"ThisBand": "Hinde na nga","SpongeCola": "Pasubali","EraserHeads": "Ligaya","ParokyaNiEdgar": "Halaga","Mojofly":"Mata"}})
+db.Playlist.find({"OPM.EraserHeads":"Ligaya"}, {'OPM.EraserHeads':1})
+db.Playlist.update({_id:ObjectId('5fbf4501abfc31f2c92dc51a')}, {$set:{"OPM.EraserHeads": "Ang Huling El Bimbo"}})
+

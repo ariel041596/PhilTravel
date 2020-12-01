@@ -39,7 +39,7 @@
           swipeable
           animated
           v-model="slide"
-          :autoplay="autoplay"
+          :autoplay="60000"
           ref="carousel"
           infinite
           class="carousel"
@@ -66,7 +66,7 @@
                     label="Explore Now"
                     rounded
                     no-caps
-                    style="width: 70%; margin-bottom: 20%; margin-top: 20%;"
+                    class="btn-start"
                   />
                 </div>
               </div>
@@ -91,7 +91,7 @@
                     label="Explore Now"
                     rounded
                     no-caps
-                    style="width: 70%; margin-bottom: 20%; margin-top: 20%;"
+                    class="btn-start"
                   />
                 </div>
               </div>
@@ -116,14 +116,14 @@
                     label="Explore Now"
                     rounded
                     no-caps
-                    style="width: 70%; margin-bottom: 20%; margin-top: 20%;"
+                    class="btn-start"
                   />
                 </div>
               </div>
             </div>
           </q-carousel-slide>
 
-          <template v-slot:control>
+          <!-- <template v-slot:control>
             <q-carousel-control
               position="bottom-right"
               :offset="[18, 18]"
@@ -157,7 +157,7 @@
                 @click="$refs.carousel.next()"
               />
             </q-carousel-control>
-          </template>
+          </template> -->
         </q-carousel>
       </div>
     </div>
@@ -243,15 +243,26 @@ export default {
 }
 
 // For Web
-// @media screen and (min-width: 768px) {
-//   .carousel {
-//     height: 93.3vh;
-//   }
-// }
+@media screen and (min-width: 768px) {
+  .btn-start {
+    width: 40%;
+    margin-bottom: 10%;
+    margin-top: 5%;
+  }
+  // .carousel {
+  //   height: 93.3vh;
+  // }
+}
 // For Mobile
-// @media screen and (max-width: 768px) {
-// .carousel {
-//     height: 93.3vh;
-//   }
-// }
+@media screen and (max-width: 768px) {
+  // .carousel {
+  //     height: 93.3vh;
+  //   }
+
+  .btn-start {
+    width: 80%;
+    margin-bottom: 20%;
+    margin-top: 10%;
+  }
+}
 </style>
