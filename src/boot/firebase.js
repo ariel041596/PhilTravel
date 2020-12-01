@@ -17,14 +17,7 @@ Vue.use(VueFirestore, {
 });
 
 var firebaseConfig = {
-  apiKey: "AIzaSyBNJRh5PQsngFCByPmSPRpbYNcOIIFAL0w",
-  authDomain: "philtravel-673e7.firebaseapp.com",
-  databaseURL: "https://philtravel-673e7.firebaseio.com",
-  projectId: "philtravel-673e7",
-  storageBucket: "philtravel-673e7.appspot.com",
-  messagingSenderId: "391616918352",
-  appId: "1:391616918352:web:2c9bb0c1ec74b5c62b3255",
-  measurementId: "G-59RNN93E41"
+  //Your Config
 };
 // Initialize Firebase
 const fb = firebase.initializeApp(firebaseConfig);
