@@ -154,7 +154,7 @@ export default {
       weatherData: null,
       lat: 14.652508308908967,
       lon: 121.05865600943991,
-      apiURL: "https://api.openweathermap.org/data/2.5/weather",
+      apiURL: "Your API URL from Open Weather Map",
       weatherApiKey: "d6e44cb3d1091336c04a62533597f506",
       weatherIcon: null,
       newsData: news
