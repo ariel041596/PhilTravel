@@ -9,7 +9,7 @@
         <div
           v-for="(iti, index) in itinerariesData"
           :key="index"
-          class="col-md-3 col-xl-2 col-lg-2 col-xs-6 col-sm-4"
+          class="col-md-3 col-xl-2 col-lg-2 col-xs-12 col-sm-12"
         >
           <q-card class="q-ma-xs">
             <q-carousel
